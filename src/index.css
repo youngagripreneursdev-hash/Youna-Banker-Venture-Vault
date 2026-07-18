@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================
+   DARK THEME (default)
+   ========================================== */
+@layer base {
+  :root {
+    /* Core */
+    --app-bg: #0a0b0d;
+    --app-fg: #ffffff;
+    --app-fg-muted: rgba(255, 255, 255, 0.30);
+    --app-fg-dim: rgba(255, 255, 255, 0.50);
+    --app-fg-subtle: rgba(255, 255, 255, 0.20);
+
+    /* Card surfaces */
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-bg-hover: rgba(255, 255, 255, 0.04);
+    --card-bg-elevated: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-border-hover: rgba(255, 255, 255, 0.10);
+
+    /* Input / field */
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.10);
+    --input-focus: rgba(16, 185, 129, 0.50);
+
+    /* Sidebar */
+    --sidebar-bg: #0a0b0d;
+    --sidebar-border: rgba(255, 255, 255, 0.05);
+
+    /* Status colors */
+    --success: #22c55e;
+    --success-bg: rgba(34, 197, 94, 0.10);
+    --warning: #f59e0b;
+    --warning-bg: rgba(245, 158, 11, 0.10);
+    --danger: #ef4444;
+    --danger-bg: rgba(239, 68, 68, 0.10);
+    --info: #3b82f6;
+    --info-bg: rgba(59, 130, 246, 0.10);
+
+    /* shadcn variables */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 14% 14%;
+    --input: 220 14% 14%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
+  }
+
+  /* ==========================================
+     LIGHT THEME - Warm Cream + Dark Brown
+     ========================================== */
+  [data-theme="light"] {
+    /* Core */
+    --app-bg: #F5F0EB;
+    --app-fg: #2D1F1B;
+    --app-fg-muted: rgba(45, 31, 27, 0.50);
+    --app-fg-dim: rgba(45, 31, 27, 0.65);
+    --app-fg-subtle: rgba(45, 31, 27, 0.30);
+
+    /* Card surfaces */
+    --card-bg: rgba(255, 255, 255, 0.72);
+    --card-bg-hover: rgba(255, 255, 255, 0.90);
+    --card-bg-elevated: rgba(255, 255, 255, 0.95);
+    --card-border: rgba(93, 64, 55, 0.12);
+    --card-border-hover: rgba(93, 64, 55, 0.25);
+
+    /* Input / field */
+    --input-bg: rgba(93, 64, 55, 0.04);
+    --input-border: rgba(93, 64, 55, 0.15);
+    --input-focus: rgba(93, 64, 55, 0.40);
+
+    /* Sidebar */
+    --sidebar-bg: #EDE7E0;
+    --sidebar-border: rgba(93, 64, 55, 0.10);
+
+    /* Status colors */
+    --success: #16a34a;
+    --success-bg: rgba(22, 163, 74, 0.08);
+    --warning: #d97706;
+    --warning-bg: rgba(217, 119, 6, 0.08);
+    --danger: #dc2626;
+    --danger-bg: rgba(220, 38, 38, 0.08);
+    --info: #2563eb;
+    --info-bg: rgba(37, 99, 235, 0.08);
+
+    /* shadcn variables */
+    --background: 30 18% 94%;
+    --foreground: 15 25% 15%;
+    --card: 30 30% 98%;
+    --card-foreground: 15 25% 15%;
+    --popover: 30 30% 98%;
+    --popover-foreground: 15 25% 15%;
+    --primary: 15 30% 30%;
+    --primary-foreground: 30 18% 96%;
+    --secondary: 25 15% 88%;
+    --secondary-foreground: 15 25% 15%;
+    --muted: 25 15% 88%;
+    --muted-foreground: 15 20% 40%;
+    --accent: 25 15% 88%;
+    --accent-foreground: 15 25% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 15% 80%;
+    --input: 20 15% 80%;
+    --ring: 15 30% 30%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: var(--app-bg);
+    color: var(--app-fg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==========================================
+   UTILITY CLASSES (theme-aware)
+   ========================================== */
+@layer utilities {
+  /* App background */
+  .app-bg {
+    background-color: var(--app-bg);
+  }
+  .app-fg {
+    color: var(--app-fg);
+  }
+
+  /* Card surfaces */
+  .card-surface {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+  }
+  .card-surface-hover:hover {
+    background-color: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
+  }
+
+  /* Input fields */
+  .input-field {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--app-fg);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: var(--input-focus);
+  }
+
+  /* Scrollbar hide */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scroll x */
+  .scroll-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Light mode brown accent decorations */
+  .brown-corner-tl {
+    position: relative;
+  }
+  .brown-corner-tl::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid #5D4037;
+    border-left: 2px solid #5D4037;
+    opacity: 0.4;
+    border-radius: 2px 0 0 0;
+    pointer-events: none;
+  }
+  .brown-corner-br {
+    position: relative;
+  }
+  .brown-corner-br::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid #5D4037;
+    border-right: 2px solid #5D4037;
+    opacity: 0.4;
+    border-radius: 0 0 2px 0;
+    pointer-events: none;
+  }
+
+  /* Light mode subtle brown line accents */
+  .brown-line-top {
+    border-top: 1px solid rgba(93, 64, 55, 0.10);
+  }
+  .brown-line-bottom {
+    border-bottom: 1px solid rgba(93, 64, 55, 0.10);
+  }
+
+  /* Status badges */
+  .badge-success {
+    background-color: var(--success-bg);
+    color: var(--success);
+  }
+  .badge-warning {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+  }
+  .badge-danger {
+    background-color: var(--danger-bg);
+    color: var(--danger);
+  }
+}

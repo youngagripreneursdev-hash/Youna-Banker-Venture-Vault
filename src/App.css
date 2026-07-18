@@ -1,0 +1,86 @@
+/* VentureVault Financial Terminal Styles */
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Smooth transitions - only apply to interactive elements */
+button, a, input, textarea, select {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus-visible rings for accessibility */
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Glass morphism enhancement */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Pulse animation for live indicators */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.live-indicator {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Chart tooltip enhancement */
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
