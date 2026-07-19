@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useStore } from '@/store/useStore';
 import { isSupabaseConfigured } from '@/lib/supabaseClient';
 import { startAnalyticsSnapshots, stopAnalyticsSnapshots } from '@/analytics/analyticsService';
@@ -106,6 +107,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </DataBootstrap>
+      <SpeedInsights />
     </BrowserRouter>
   );
 }
